@@ -1,0 +1,6 @@
+.card-block-shadow{
+  padding:15px;box-shadow: 5px 5px #a29696; border-style:outset
+}
+.active-card-block-shadow{
+  padding:15px;box-shadow: 5px 5px #5eb46a; border-style:outset
+}

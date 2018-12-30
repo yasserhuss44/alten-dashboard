@@ -1,0 +1,41 @@
+<div class="py-5">
+    <div class="container-fluid" style="padding-left:10px;margin-top:-40px">
+
+
+        <div class="card-block" (keydown)="keyDownFunction($event)">
+            <div class="card-header">
+
+
+                <div class="row">
+                    <div class="col-sm-8 col-md-6">
+                        <input type="text" style="margin:15px" [(ngModel)]="searchTag" class="form-control" placeholder="Search in every thing" />
+                    </div>
+                    <div class="col-sm-3 col-md-2">
+                        <input type="button" class="btn btn-success" (click)="search()" value="Search" style="margin-top:15px;margin-left:10px" /> </div>
+                </div>
+            </div>
+        </div>
+        <div class="row col-md-12 hidden-md-up">
+    <!-- <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading> -->
+
+            <div class="card col-md-3" *ngFor="let hero of heroes.itemsList" style="margin-top:15px;border-style:none">
+        
+                <div  class="card-block" [ngClass]="hero.vehicle.isConnected?'active-card-block-shadow':'card-block-shadow'">
+                    <fa *ngIf="hero.vehicle.isConnected" name="truck" size="2x" style="color:green"></fa>
+                    <fa *ngIf="!hero.vehicle.isConnected" name="truck" size="2x" style="color:gray"></fa>
+                    <fa *ngIf="hero.vehicle.isConnected" name="check" class="pull-right" size="2x" style="color:green"></fa>
+
+                    <h4 class="card-title" style="text-align:center">{{ hero.vehicle.regNumber }}</h4>
+                    <h6 class="card-subtitle text-muted">VehicleId: {{ hero.vehicle.vehicleId }}</h6>
+                    <br/>
+                    <fa name="user" *ngIf="hero.vehicle.isConnected" size="2x" style="color:green"></fa>
+                    <fa name="user" *ngIf="!hero.vehicle.isConnected" size="2x" style="color:gray"></fa>
+
+                    <h6 class="card-text p-y-1">Owner Name: {{hero.customer.name}}</h6>
+                    <h6 class="card-text p-y-1">Address: {{hero.customer.address}}</h6>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
